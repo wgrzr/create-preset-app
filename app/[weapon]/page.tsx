@@ -5,6 +5,10 @@ import {
 import { serverFetch } from "@/utils/query-utils";
 import Image from "next/image";
 
+import {
+  Builder,
+} from "@/_components";
+
 export default async function WeaponPageServerComponent({
   params,
 }: {
@@ -17,14 +21,17 @@ export default async function WeaponPageServerComponent({
 
   return (
     <div>
-      <div className="data-container">
+      <Builder>
+
+      </Builder>
+      {/* <div className="data-container">
         <h1>{"params.weapon (URL): " + params.weapon}</h1>
         {item ? (
           <div className="content">
             <p className="desc">{item.description}</p>
           </div>
         ) : null}
-      </div>
+      B</div> */}
     </div>
   );
 }
