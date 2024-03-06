@@ -1,0 +1,59 @@
+query WeaponItems($name: String) {
+  items(categoryNames: Weapon, name: $name) {
+    id
+    name
+    normalizedName
+    inspectImageLink
+    image512pxLink
+    properties {
+      ... on ItemPropertiesWeapon {
+        caliber
+        fireRate
+        ergonomics
+        recoilVertical
+        recoilDispersion
+        convergence
+        recoilAngle
+        cameraRecoil
+        cameraSnap
+        centerOfImpact
+        deviationCurve
+        deviationMax
+        defaultErgonomics
+        defaultRecoilVertical
+        defaultPreset {
+          id
+          name
+          inspectImageLink
+          image512pxLink
+          baseImageLink
+        }
+      }
+    }
+  }
+}
+
+query SingleWeapon($normalizedName: String!) {
+  item(normalizedName: $normalizedName) {
+    id
+    normalizedName
+    shortName
+    ... on Item {
+      category {
+        name
+      }
+    }
+    description
+    properties {
+      ... on ItemPropertiesWeapon {
+        defaultPreset {
+          id
+          name
+          inspectImageLink
+          image512pxLink
+          baseImageLink
+        }
+      }
+    }
+  }
+}
