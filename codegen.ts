@@ -4,10 +4,10 @@ const config: CodegenConfig = {
   // Where your GQL schema is located (could also be externally hosted)
   schema: "https://api.tarkov.dev/graphql",
   overwrite: true,
-  documents: ["./app/**/*.gql", "./app/**/!(*.d).{ts,tsx}"],
+  documents: ["./**/*.gql", "./app/**/!(*.d).{ts,tsx}"],
   generates: {
     // Where the generated types and hooks file will be placed
-    "./app/gql-generated-types.ts": {
+    "./gql-generated-types.ts": {
       plugins: [
         "typescript",
         "typescript-operations",
@@ -39,7 +39,7 @@ const config: CodegenConfig = {
         addSuspenseQuery: true,
         // Allows us to specify a custom fetcher function that will leverage
         // Next.js caching fetaures within our generated query hooks.
-        fetcher: "@/utils/fetcher#fetcher",
+        fetcher: "./server/fetcher#fetcher",
       },
     },
   },

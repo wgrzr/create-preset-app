@@ -7,6 +7,11 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  corePlugins: {
+    // preflight: false
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config
 

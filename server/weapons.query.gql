@@ -38,12 +38,12 @@ query SingleWeapon($normalizedName: String!) {
     id
     normalizedName
     shortName
+    description
     ... on Item {
       category {
         name
       }
     }
-    description
     properties {
       ... on ItemPropertiesWeapon {
         defaultPreset {

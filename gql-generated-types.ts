@@ -1,5 +1,5 @@
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
-import { fetcher } from '@/utils/fetcher';
+import { fetcher } from './server/fetcher';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -2071,12 +2071,12 @@ export const SingleWeaponDocument = `
     id
     normalizedName
     shortName
+    description
     ... on Item {
       category {
         name
       }
     }
-    description
     properties {
       ... on ItemPropertiesWeapon {
         defaultPreset {

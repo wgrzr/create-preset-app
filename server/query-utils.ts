@@ -32,16 +32,16 @@ const hasVariablesTypeGuard = <TQuery extends QueryWithKey>(
 
 export type ServerFetchOptions<TQuery extends QueryWithKey> =
   Parameters<TQuery>[0] extends
-    | Exact<{
-        [key: string]: never;
-      }>
-    | undefined
-    ? { next?: NextFetchRequestConfig; cache?: RequestCache }
-    : {
-        variables?: Parameters<TQuery>[0];
-        next?: NextFetchRequestConfig;
-        cache?: RequestCache;
-      };
+  | Exact<{
+    [key: string]: never;
+  }>
+  | undefined
+  ? { next?: NextFetchRequestConfig; cache?: RequestCache }
+  : {
+    variables?: Parameters<TQuery>[0];
+    next?: NextFetchRequestConfig;
+    cache?: RequestCache;
+  };
 
 type FetcherReturnValue<TQuery extends QueryWithKey> = Awaited<
   ReturnType<ReturnType<TQuery["fetcher"]>>
